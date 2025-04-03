@@ -7,16 +7,16 @@ function BookRecommend() {
   const [value, setValue] = useState('');
   const [file, setFile] = useState(null);
   const [rows, setRows] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); 
   const [fileLoading, setFileLoading] = useState(false)
   const [books, setBooks] = useState([])
 
   const handleChange = useCallback((e) => {
     setValue(e.target.value);
     if (value.trim() === '') {
-      setRows(1);
+      setRows(1); 
     } else {
-      const lineCount = Math.max(1, value.split('\n').length);
+      const lineCount = Math.max(1, value.split('\n').length); 
       setRows(lineCount);
     }
   }, [value]);
@@ -29,8 +29,8 @@ function BookRecommend() {
 
   const uploadFile = useCallback(async (e) => {
     e.preventDefault();
-    const upData = new FormData();
-    upData.append('file', file)
+    const upData = new FormData(); 
+    upData.append('file', file)  
     try {
       setFileLoading(true)
       const response = await instance.post('/book/upload', upData, {
@@ -48,7 +48,7 @@ function BookRecommend() {
 
   const handleData = useCallback(async () => {
     const res = await deleteData('/book/deleteData');
-    alert('Vector Storeからデータが削除されました。')
+    alert('Vector Storeからデータが削除されました。')  
   }, [value])
 
   const getBookData = useCallback(async (e) => {
@@ -59,9 +59,9 @@ function BookRecommend() {
       const getData = {
         searchData: value
       }
-      const res = await instance.post('/book/recommendBook', getData);
-      setLoading(false);
-      setBooks(res.data.text)
+      const res = await instance.post('/book/recommendBook', getData);  
+      setLoading(false);  
+      setBooks(res.data.text)  
     } catch (error) {
       console.log('cant get book data!')
       setLoading(false)
