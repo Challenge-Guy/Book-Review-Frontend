@@ -5,11 +5,11 @@ import { deleteData } from "../../utils/axios";
 
 function BookRecommend() {
   const [value, setValue] = useState('');
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState(null); 
   const [rows, setRows] = useState(1);
-  const [loading, setLoading] = useState(false); 
-  const [fileLoading, setFileLoading] = useState(false)
-  const [books, setBooks] = useState([])
+  const [loading, setLoading] = useState(false);  
+  const [fileLoading, setFileLoading] = useState(false) 
+  const [books, setBooks] = useState([]) 
 
   const handleChange = useCallback((e) => {
     setValue(e.target.value);
